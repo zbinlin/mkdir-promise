@@ -6,7 +6,9 @@ just like `mkdir -p`.
 
 ## Install
 
+```shell
 npm install mkdir-promise
+```
 
 
 ## Usage
