@@ -1,0 +1,16 @@
+{
+  "name": "mkdir-promise",
+  "version": "0.0.1",
+  "description": "fs.mkdir implementation with es6 Promise",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/test-index.js"
+  },
+  "keywords": [
+    "mkdir",
+    "promise"
+  ],
+  "author": "zbinlin",
+  "license": "MIT",
+  "devDependencies": {}
+}
