@@ -1,10 +1,14 @@
 {
   "name": "mkdir-promise",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "fs.mkdir implementation with es6 Promise",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/test-index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbinlin/mkdir-promise.git"
   },
   "keywords": [
     "mkdir",
