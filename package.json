@@ -1,6 +1,6 @@
 {
   "name": "mkdir-promise",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "fs.mkdir implementation with es6 Promise",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,12 @@
   ],
   "author": "zbinlin",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/zbinlin/mkdir-promise/issues"
+  },
+  "homepage": "https://github.com/zbinlin/mkdir-promise#readme",
+  "directories": {
+    "test": "test"
+  }
 }
