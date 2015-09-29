@@ -32,6 +32,9 @@ function _mkdir(dir, mode) {
 
 module.exports = function mkdir(dir, mode) {
     var paths = dir.split(path.sep);
+    if (paths[0] === '') {
+      paths[0] = path.sep;
+    }
     return paths.reduce(function (promise, fp) {
         return promise.then(function (prev) {
             fp = path.join(prev, fp);
@@ -42,7 +45,7 @@ module.exports = function mkdir(dir, mode) {
                     if (stats.isDirectory()) {
                         return fp;
                     } else {
-                        var err = new Error("Conot create directory " + fp + ": Not a directory.");
+                        var err = new Error("Cannot create directory " + fp + ": Not a directory.");
                         return Promise.reject(err);
                     }
                 });
