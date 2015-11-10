@@ -1,6 +1,6 @@
 {
   "name": "mkdir-promise",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "fs.mkdir implementation with es6 Promise",
   "main": "index.js",
   "scripts": {
