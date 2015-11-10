@@ -27,6 +27,22 @@ describe("mkdir -p foo/bar", function () {
             done(ex);
         });
     });
+    it("should parallel", function (done) {
+        function tick(dir) {
+            return new Promise(function (resolve, reject) {
+                process.nextTick(function () {
+                    resolve(mkdir(dir));
+                });
+            });
+        }
+        Promise.all([tick("foo/bar/foo"), tick("foo/bar/foo/bar")]).then(function (rst) {
+            assert.equal(rst[0], "foo/bar/foo");
+            assert.equal(rst[1], "foo/bar/foo/bar");
+            done();
+        }).catch(function (ex) {
+            done(ex);
+        });
+    });
     after(function () {
         child_process.exec("rm -r foo");
         process.chdir(cwd);

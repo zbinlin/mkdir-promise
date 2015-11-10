@@ -4,7 +4,7 @@ var path = require("path");
 var fs = require("fs");
 
 function _exists(filepath) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve) {
         fs.exists(filepath, function (exists) {
             resolve(exists);
         });
@@ -24,7 +24,7 @@ function _mkdir(dir, mode) {
     mode || (mode = 511/* 0777 */);
     return new Promise(function (resolve, reject) {
         fs.mkdir(dir, mode, function (err) {
-            if (err) return reject(err);
+            if (err && err.code !== "EEXIST") return reject(err);
             resolve(dir);
         });
     });
@@ -32,8 +32,8 @@ function _mkdir(dir, mode) {
 
 module.exports = function mkdir(dir, mode) {
     var paths = dir.split(path.sep);
-    if (paths[0] === '') {
-      paths[0] = path.sep;
+    if (paths[0] === "") {
+        paths[0] = path.sep;
     }
     return paths.reduce(function (promise, fp) {
         return promise.then(function (prev) {
